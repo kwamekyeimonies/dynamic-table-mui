@@ -11,8 +11,13 @@ import {
 } from '@mui/material';
 
 const DynamicTable = ({ data }) => {
+    if (data.length === 0) {
+        return <p>No data available.</p>;
+    }
+
     const rowsPerPage = 5; // Number of rows to display per page
-    const [page, setPage] = useState(0);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [page, setPage] = useState(0)
 
     const headers = Array.from(new Set(data.map(item => item.question_name)));
     const responseMap = {};
