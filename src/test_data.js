@@ -20,7 +20,8 @@ const convertJsonToExcel = (jsonData) => {
 
     const excelFile = XLSX.write(workbook, { type: 'binary', bookType: 'xlsx' });
 
-    const fileName = 'data.xlsx'; 
+    const fileName = 'report.xlsx'; 
+
     const buffer = new ArrayBuffer(excelFile.length);
     const view = new Uint8Array(buffer);
     for (let i = 0; i < excelFile.length; i++) {
